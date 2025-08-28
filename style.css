@@ -13,11 +13,12 @@
     flex-direction: row;
     background-color: var(--nav_color);
     height: 4rem;
-   
-    
 }
 .navBar >a{
      color: white;
      padding: 1.5rem;
     text-decoration: none;
+}
+.input{
+    
 }
