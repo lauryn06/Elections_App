@@ -10,11 +10,11 @@
 }
 .navBar{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: var(--nav_color);
-    height: 4rem;
+    height: 6rem;
 }
-.navBar >a{
+.navBar div >a, h1{
      color: white;
      padding: 1rem;
     text-decoration: none;
@@ -26,6 +26,10 @@ flex-direction: column;
 }
 .input{
     margin: 3rem;
-
-
+}
+h3{
+    font-family: 'Times New Roman', Times, serif;
+    padding: 3rem;
+    font-size: 1.5rem;
+    color: var(--tables);
 }
