@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+:root{
+--nav_color: #3B82F6;
+--background: #FFFFFF;
+--tables: #6B7280;
+}
+.navBar{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--nav_color);
+    height: 4rem;
+   
+    
+}
+.navBar >a{
+     color: white;
+     padding: 1.5rem;
+    text-decoration: none;
+}
