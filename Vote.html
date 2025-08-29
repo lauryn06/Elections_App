@@ -7,11 +7,22 @@
     <title>Document</title>
 </head>
 <body>
+      <nav class="navBar">
+        <div class="head"><h1>ELECTION APP</h1></div>
+        <div>
+        <a href="Index.html">Home</a>
+        <a href="voter.html">Voter</a>
+        <a href="candidate.html">Candidate</a>
+         <a href="vote.html">Cast Vote</a>
+        <a href="Results.html">Result</a>
+        </div>
+        
+    </nav>
     <h1>VOTE CASTING</h1>
     <form action="">
         <label for="">Insert Candidate First Name</label>
         <input type="text">
-        
+
          <label for="">Insert Candidate Last Name</label>
         <input type="text">
 
@@ -31,6 +42,10 @@
             <option value="">MP</option>
             <option value="">Chancellor</option>
            </select>
+            <div class="VoterButton">
+           <button type="submit">Vote</button>
+           <button type="reset" id="cancel">Cancel</button>
+           </div>
     </form>
     <script src="script.js"></script>
 </body>
