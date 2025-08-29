@@ -20,9 +20,15 @@
     text-decoration: none;
 }
 form{
-background-color: var(--nav_color);
+background-color: var(--background);
 display: flex;
 flex-direction: column;
+width: 20rem;
+margin: 3rem;
+border-radius: 1rem;
+border: solid 1px var(--tables);
+color: var(--tables);
+padding: 0.5rem;
 }
 .input{
     margin: 3rem;
@@ -32,4 +38,28 @@ h3{
     padding: 3rem;
     font-size: 1.5rem;
     color: var(--tables);
+}
+form > input, select{
+    width: 90%;
+    border-radius: 10px;
+    background-color: var(--background);
+    height: 2rem;
+    padding-left: 0.5rem;
+    margin: 0.5rem;
+}
+form > label{
+    padding-left: 1rem;
+}
+.VoterButton > button{
+    margin: 1rem;
+    height: 2rem;
+    width: 4rem;
+    color: var(--background);
+    background-color: var(--nav_color);
+    border: 1px;
+    border-radius: 10px;
+}
+.headerv{
+    text-align: center;
+    padding: 1rem;
 }
