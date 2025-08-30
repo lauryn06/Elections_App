@@ -1,0 +1,22 @@
+{
+  "name": "elections-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauryn06/Elections_App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lauryn06/Elections_App/issues"
+  },
+  "homepage": "https://github.com/lauryn06/Elections_App#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
