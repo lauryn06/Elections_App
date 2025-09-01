@@ -3,6 +3,12 @@
     margin: 0;
     box-sizing: content-box;
 }
+body{
+    background-image: url(Download\ premium\ psd\ _\ image\ of\ Man\ casting\ his\ vote\ to\ a\ ballot\ box\ mockup\ by\ Felix\ about\ vote\,\ election\,\ voting\,\ ballot\ box\,\ and\ vote\ mockup\ 2027097.jpeg);
+    background-size: cover;
+    background-repeat:inherit;
+    
+}
 :root{
 --nav_color: #3B82F6;
 --background: #FFFFFF;
@@ -31,6 +37,7 @@ color: var(--tables);
 padding: 0.5rem;
 }
 .input{
+    background-color: var(--background);
     margin: 3rem;
 }
 h3{
@@ -47,6 +54,7 @@ form > input, select{
     padding-left: 0.5rem;
     margin: 0.5rem;
 }
+
 form > label{
     padding-left: 1rem;
 }
