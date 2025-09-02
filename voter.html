@@ -23,54 +23,21 @@
         
         <h5 class="headerv">VOTER REGISTRATION FORM</h5>
       <label for="" class="VoterFName">Enter your first Name</label>
-      <input type="text" name="" id="" placeholder="eg Lauryn">
+      <input type="text" name="" id="" placeholder="eg Lauryn" required class="VFname">
            <label for="" class="VoterLName">Enter your Last Name</label>
-           <input type="text" placeholder="eg Banda">
-           <label for="">Enter Date of birth</label>
-           <input type="date" name="" id="">
-            <label for="">Enter your District</label>
-           <select name="Ward" id="">
-            <option value="">Blantyre</option>
-            <option value="">Lilongwe </option>
-            <option value="">Chikwawa</option>
-            <option value="">Mulanje</option>
-            <option value="">Mzuzu</option>
-            <option value="">zomba</option>
-            <option value="">mzimba</option>
-            <option value="">Chiladzulu</option>
-            <option value="">Chitipa</option>
-            <option value="">Likoma</option>
-           </select>
-           <label for="">Select your constituency</label>
-           <select name="constituency" id="">
-            <Option> Bangwe</Option>
-             <Option> Kabula</Option>
-            <Option> Malabada</Option>
-            <Option> North</Option>
-            <Option> North East</Option>
-            <Option>South</Option>
-            <Option> South East</Option>
-            <Option> West</Option>
-            <Option> Rural East</Option>
-            <Option> City South</Option>
-           </select>
-           <label for="">Enter your Ward</label>
-           <select name="Ward" id="">
-            <option value="">Chikowa </option>
-            <option value="">Chigwaja </option>
-            <option value="">Chikwembere</option>
-            <option value="">Matindi</option>
-            <option value="">Mpemba</option>
-            <option value="">Soche</option>
-            <option value="">Lunzu</option>
-            <option value="">Chilaweni</option>
-            <option value="">Chilangoma</option>
-            <option value="">Linjidzi</option>
-           </select>
+           <input type="text" placeholder="eg Banda" required class="VLname">
+           <label for="">Enter National Registration Card</label>
+           <input type="text" name="" id="" placeholder="eg.F5LNC34" required class="VNRC">
+           <label for="">Select Your Gender</label>
+           <div>
+           <input type="radio" name="Gender" required class="Vgender">
+           <label for="">Female</label><br>
+            <input type="radio" name="Gender" required class="Vgender">
+           <label for="">Male</label></div>
            <div class="VoterButton">
            <button type="submit">Register</button>
            <button type="reset" id="cancel">Cancel</button>
-           </div>
+           </div> 
     </form></div>
     <script src="script.js"></script>
     
