@@ -81,6 +81,13 @@ form > label{
     background-color: var(--nav_color);
     border: 1px;
     border-radius: 10px;
+   
+}
+button{
+     box-shadow: 3px 3px 3px black; 
+}
+.VoterButton > button:hover, button:hover, a:hover{
+    background-color: var(--tables);
 }
 #cancel{
        margin: 1rem;
@@ -96,18 +103,18 @@ form > label{
     padding: 1rem;
 }
 table{
-    color: var(--tables);
+    color: var(--background);
     margin-left: 1rem;
     padding: 1rem;
     border: solid 1px;
     font-size: smaller;
 }
 th{
-font-weight: 900;
+font-weight: 500;
 }
 h4{
-  font-weight: bold;  
-  color: var(--tables);
+  font-weight: 900;  
+  color: var(--background);
   padding-left:10rem ;
   padding-top: 1rem;
 }
