@@ -21,44 +21,28 @@
         </div>
         
     </nav>
-    <h1>VOTE CASTING</h1>
-    <form action="/Results.html" method="post">
-       <select name="VoterID" id="">
-          <Option>1</Option>
-          <Option>2</Option>
-          <Option>3</Option>
-          <Option>4</Option>
-          <Option>5</Option>
-         </select>
-        <label for="">Select candidate</label>
-         <select name="Candidate" id="">
-            <option value="">Chakwera</option>
-            <option value="">Munthalika</option>
-            <option value="">Banda</option>
-         </select>
-         <label for="">Select VoterID</label>
+      <h4>Votes</h4>
+    <table>
+        <tr>
+            <th class="CID">CandidateID</th>
+        
+        <th class="FName">First Name</th>
+    
+        <th class="LName">Last Name</th>
+        
+        <th class="PP">Political Party</th>
 
-         <label for="">Select the political Party</label>
-          <select name="Political Party" id="">
-            <option value="">DPP</option>
-            <option value="">MCP</option>
-            <option value="">UTM</option>
-            <option value="">ODYA ZAKE</option>
-            <option value="">PP</option>
-              <option value="">Independent</option>
-           </select>
-
-         <label for="">Select position</label>
-      <select name="Position" id="">
-            <option value="">President</option>
-            <option value="">MP</option>
-            <option value="">Chancellor</option>
-           </select>
-            <div class="VoterButton">
-           <button type="submit">Vote</button>
-           <button type="reset" id="cancel">Cancel</button>
-           </div>
-    </form>
+        <th class="Position">Position</th>
+        
+        <th class="District">District</th>
+        
+        <th>Vote Count</th>
+        </tr>
+        
+      
+        
+    </table>
+    
     <script src="script.js"></script>
 </body>
 </html>
