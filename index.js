@@ -19,11 +19,20 @@ app.get("/Vote",(req,res)=>{
     res.sendFile(path.join(__dirname, "/Vote.html"));
 });
 app.get("/Voter",(req,res)=>{
-    res.sendFile(path.join(__dirname, "/Voter.html"));
+    res.sendFile(path.join(__dirname, "/voter.html"));
 });
 
 app.get("/Results",(req,res)=>{
     res.sendFile(path.join(__dirname, "/Results.html"));
+});
+app.get("/Monitoring",(req,res)=>{
+    res.sendFile(path.join(__dirname, "/Monitoring.html"));
+});
+app.get("/Polling Station",(req,res)=>{
+    res.sendFile(path.join(__dirname, "/Polling Station.html"));
+});
+app.get("/Political Party",(req,res)=>{
+    res.sendFile(path.join(__dirname, "/Political Party.html"));
 });
 app.listen(Port,SERVER,()=>{
 console.log(`Server running at http://localhost:${Port}`)
