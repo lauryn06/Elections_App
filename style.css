@@ -105,7 +105,7 @@ button{
 }
 table{
     color: var(--background);
-    margin-left: 1rem;
+   margin-left: 4rem;
     padding: 1rem;
     border: solid 1px;
     font-size: smaller;
@@ -116,6 +116,6 @@ font-weight: 500;
 h4{
   font-weight: 900;  
   color: var(--background);
-  padding-left:10rem ;
+  padding-left:7.5rem ;
   padding-top: 1rem;
 }
