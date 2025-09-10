@@ -46,7 +46,6 @@ padding: 0.5rem;
      font-family: 'Times New Roman', Times, serif;
     padding: 1.5rem;
     font-size: 1rem;
-    color: var(--tables);
      display: inline-block;
 }
 span{
@@ -80,7 +79,7 @@ form > label{
     margin: 1rem;
     height: 2rem;
     width: 4rem;
-    color: var(--background);
+    color: var(--letters);
     background-color: var(--nav_color);
     border: 1px;
     border-radius: 10px;
@@ -91,6 +90,7 @@ button{
 }
 .VoterButton > button:hover, button:hover, a:hover{
     background-color: var(--tables);
+    border-radius: 2.5rem;
 }
 #cancel{
        margin: 1rem;
@@ -106,7 +106,7 @@ button{
     padding: 1rem;
 }
 table{
-    color: var(--background);
+    color: var(--letters);
    margin-left: 4rem;
     padding: 1rem;
     border: solid 1px;
@@ -117,7 +117,7 @@ font-weight: 500;
 }
 h4{
   font-weight: 900;  
-  color: var(--background);
+  color: var(--letters);
   padding-left:7.5rem ;
   padding-top: 1rem;
 }
