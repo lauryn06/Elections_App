@@ -22,8 +22,8 @@ app.get("/Voter",(req,res)=>{
     res.sendFile(path.join(__dirname, "/voter.html"));
 });
 
-app.get("/Results",(req,res)=>{
-    res.sendFile(path.join(__dirname, "/Results.html"));
+app.get("/Winner",(req,res)=>{
+    res.sendFile(path.join(__dirname, "/Winner.html"));
 });
 app.get("/Monitoring",(req,res)=>{
     res.sendFile(path.join(__dirname, "/Monitoring.html"));
