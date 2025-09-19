@@ -133,4 +133,58 @@ fetch("/Political Party")
         
     });
 });
-
+fetch("/Monitoring")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".monitorVotes");
+    data.forEach(monitor => {
+        const row=`<tr>
+        <td>${monitor.RegisteredVoters}</td>
+        <td>${monitor.VotersVoted}</td>
+        <td>${monitor.SpoiledBallots}</td>
+        <td>${monitor.ValidVotes}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+        
+    });
+});
+fetch("/Monitoring")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".monitorBallot");
+    data.forEach(monitor => {
+        const row=`<tr>
+        <td>${monitor.BallotPapersIssued}</td>
+        <td>${monitor.BallotPapersUsed}</td>
+        <td>${monitor.RemainingBallots}</td>
+        <td>${monitor.BallotBoxStatus}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+    });
+});
+fetch("/Monitoring")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".monitorIncidents");
+    data.forEach(monitor => {
+        const row=`<tr>
+        <td>${monitor.Time}</td>
+        <td>${monitor.IncidentDescription}</td>
+        <td>${monitor.Status}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+    });
+});
+fetch("/Monitoring")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".monitorStatus");
+    data.forEach(monitor => {
+        const row=`<tr>
+        <td>${monitor.StationID}</td>
+        <td>${monitor.TransmissionTime}</td>
+        <td>${monitor.Status}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+    });
+});
