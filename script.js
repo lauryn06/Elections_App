@@ -113,3 +113,24 @@ fetch("/Polling Station")
         
     });
 });
+
+fetch("/Political Party")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".partyTable");
+    data.forEach(party => {
+        const row=`<tr>
+        <td>${party.PartyID}</td>
+        <td>${party.PartyName}</td>
+        <td>${party.Abbreviation}</td>
+        <td>${party.LeaderFirstName}</td>
+        <td>${party.LeaderLastName}</td>
+        <td>${party.FoundedYear}</td>
+        <td>${party.Location}</td>
+        <td>${party.Contact}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+        
+    });
+});
+
