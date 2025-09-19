@@ -35,6 +35,82 @@ app.get("/Polling Station",(req,res)=>{
 app.get("/Political Party",(req,res)=>{
     res.sendFile(path.join(__dirname, "/Political Party.html"));
 });
+
+//Fetching data from database 
+
+//Fetching candidate data
+app.get("/candidate",(req,res)=>{
+    const sql="";
+    connection.query(sql,(err,results)=>{
+        if(err){
+        console.err("Error fetching candidates");
+        return;
+        }
+        res.json(results);
+    });
+});
+
+app.get("/Vote",(req,res)=>{
+    const sql="";
+    connection.query(sql,(err,results)=>{
+        if(err){
+        console.err("Error fetching Votes");
+        return;
+        }
+        res.json(results);
+    });
+});
+app.get("/Voter",(req,res)=>{
+    const sql="";
+    connection.query(sql,(err,results)=>{
+        if(err){
+            console.err("Failed to fetch voters");
+            return;
+        }
+        res.json(results);
+    });
+});
+app.get("/Winner",(req,res)=>{
+    const sql="";
+    connection.query(sql,(err,results)=>{
+        if(err){
+            console.err("Failed to fetch winners");
+            return;
+        }
+        res.json(results);
+    });
+});
+app.get("/Monitoring",(req,res)=>{
+    const sql="";
+    connection.query(sql,(err,results)=>{
+        if(err){
+        console.err("Error fetching Voters");
+        return;
+        }
+        res.json(results);
+    });
+});
+app.get("/Polling Station",(req,res)=>{
+    const sql="";
+    connection.query(sql,(err,results)=>{
+        if(err){
+        console.err("Error fetching Voters");
+        return;
+        }
+        res.json(results);
+    });
+});
+app.get("/Political Party",(req,res)=>{
+    const sql="";
+    connection.query(sql,(err,results)=>{
+        if(err){
+        console.err("Error fetching Voters");
+        return;
+        }
+        res.json(results);
+    });
+});
+
 app.listen(Port,SERVER,()=>{
 console.log(`Server running at http://localhost:${Port}`)
 });
