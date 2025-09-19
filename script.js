@@ -97,3 +97,19 @@ fetch("/Winner")
         tableBody.innerHTML +=row;
     });
 });
+fetch("/Polling Station")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".pollingTable");
+    data.forEach(station => {
+        const row=`<tr>
+        <td>${station.StationID}</td>
+        <td>${station.StationName}</td>
+        <td>${station.Constituency}</td>
+        <td>${station.Ward}</td>
+        <td>${station.District}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+        
+    });
+});
