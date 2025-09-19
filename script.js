@@ -1,7 +1,7 @@
 fetch("/Candidate")
 .then(response =>response.json())
 .then(data=>{
-    const tableBody=document.querySelector();
+    const tableBody=document.querySelector(".candidateTable");
     data.forEach(Candidate => {
         const row=`<tr>
         <td>${Candidate.CandidateID}</td>
@@ -20,3 +20,38 @@ fetch("/Candidate")
 });
 
 
+fetch("/Voter")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".voterTable");
+    data.forEach(voter => {
+        const row=`<tr>
+        <td>${voter.VoterID}</td>
+        <td>${voter.FirstName}</td>
+        <td>${voter.LastName}</td>
+        <td>${voter.NRC}</td>
+        <td>${voter.Gender}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+        
+    });
+});
+
+fetch("/Votes")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".voteTable");
+    data.forEach(vote => {
+        const row=`<tr>
+        <td>${vote.CandidateID}</td>
+        <td>${vote.FirstName}</td>
+        <td>${vote.LastName}</td>
+        <td>${vote.PoliticalParty}</td>
+        <td>${vote.Position}</td>
+        <td>${vote.District}</td>
+        <td>${vote.VoteCount}</td>
+        </tr>`;
+        tableBody.innerHTML+=row;
+        
+    });
+});
