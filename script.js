@@ -55,3 +55,45 @@ fetch("/Votes")
         
     });
 });
+
+
+fetch("/Winner")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".mwinner");
+    data.forEach(winner => {
+        const row=`<tr>
+        <td>${winner.WinnerID}</td>
+        <td>${winner.FirstName}</td>
+        <td>${winner.LastName}</td>
+        <td>${winner.PoliticalParty}</td>
+         <td>${winner.Constituency}</td>
+          <td>${winner.District}</td>
+        <td>${winner.TotalVotes}</td>
+        <td>${winner.ElectionYear}</td>
+        <td>${winner.DateDeclared}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+    });
+});
+
+fetch("/Winner")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".wwinner");
+    data.forEach(winner => {
+        const row=`<tr>
+        <td>${winner.WinnerID}</td>
+        <td>${winner.FirstName}</td>
+        <td>${winner.LastName}</td>
+        <td>${winner.PoliticalParty}</td>
+        <td>${winner.Ward}</td>
+         <td>${winner.Constituency}</td>
+          <td>${winner.District}</td>
+        <td>${winner.TotalVotes}</td>
+        <td>${winner.ElectionYear}</td>
+        <td>${winner.DateDeclared}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+    });
+});
