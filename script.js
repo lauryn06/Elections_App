@@ -188,3 +188,51 @@ fetch("/Monitoring")
         tableBody.innerHTML +=row;
     });
 });
+fetch("/Officer")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".electionTable");
+    data.forEach(election => {
+        const row=`<tr>
+        <td>${election.PresidingOfficerID}</td>
+        <td>${election.FirstName}</td>
+        <td>${election.LastName}</td>
+         <td>${election.PollingStationName}</td>
+          <td>${election.Status}</td>
+           <td>${election.Contact}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+    });
+});
+fetch("/Officer")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".returningTable");
+    data.forEach(returning => {
+        const row=`<tr>
+        <td>${returning.ReturningOfficerID}</td>
+        <td>${returning.FirstName}</td>
+        <td>${returning.LastName}</td>
+         <td>${returning.Constituency}</td>
+          <td>${returning.District}</td>
+           <td>${returning.Contact}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+    });
+});
+fetch("/Officer")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".presidingTable");
+    data.forEach(presiding=> {
+        const row=`<tr>
+        <td>${presiding.PresidingOfficerID}</td>
+        <td>${presiding.FirstName}</td>
+        <td>${presiding.LastName}</td>
+         <td>${presiding.PollingStationName}</td>
+          <td>${presiding.Status}</td>
+           <td>${presiding.Contact}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+    });
+});
