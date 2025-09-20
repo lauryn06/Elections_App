@@ -60,7 +60,7 @@ fetch("/Votes")
 fetch("/Winner")
 .then(response =>response.json())
 .then(data=>{
-    const tableBody=document.querySelector(".mwinner");
+    const tableBody=document.querySelector(".m-winner");
     data.forEach(winner => {
         const row=`<tr>
         <td>${winner.WinnerID}</td>
@@ -80,7 +80,7 @@ fetch("/Winner")
 fetch("/Winner")
 .then(response =>response.json())
 .then(data=>{
-    const tableBody=document.querySelector(".wwinner");
+    const tableBody=document.querySelector(".w-winner");
     data.forEach(winner => {
         const row=`<tr>
         <td>${winner.WinnerID}</td>

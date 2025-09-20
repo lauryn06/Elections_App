@@ -22,6 +22,9 @@ app.get("/Vote",(req,res)=>{
 app.get("/Voter",(req,res)=>{
     res.sendFile(path.join(__dirname, "/voter.html"));
 });
+app.get("/Officer",(req,res)=>{
+    res.sendFile(path.join(__dirname, "/Officer.html"));
+});
 
 app.get("/Winner",(req,res)=>{
     res.sendFile(path.join(__dirname, "/Winner.html"));
@@ -56,6 +59,16 @@ app.get("/Vote",(req,res)=>{
         if(err){
         console.err("Error fetching Votes");
         return;
+        }
+        res.json(results);
+    });
+});
+app.get("/Officer",(req,res)=>{
+    const sql="";
+    connection.query(sql,(err,results)=>{
+        if(err){
+            console.err("Failed to fetch data");
+            return;
         }
         res.json(results);
     });

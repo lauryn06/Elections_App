@@ -2,9 +2,9 @@ const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root',        // your WAMP MySQL username
-    password: '',        // your MySQL password
-    database: 'ElectionDB' // your database name
+    user: 'root',        
+    password: '',        
+    database: 'ElectionDB' 
 });
 
 connection.connect((err) => {
