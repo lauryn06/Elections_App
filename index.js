@@ -41,7 +41,6 @@ app.get("/Political Party",(req,res)=>{
 
 //Fetching data from database 
 
-//Fetching candidate data
 app.get("/candidate",(req,res)=>{
     const sql="";
     connection.query(sql,(err,results)=>{
