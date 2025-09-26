@@ -61,17 +61,17 @@ fetch("/Winner")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".m-winner");
-    data.forEach(winner => {
+    data.MemberOfParliament.forEach(mp => {
         const row=`<tr>
-        <td>${winner.WinnerID}</td>
-        <td>${winner.FirstName}</td>
-        <td>${winner.LastName}</td>
-        <td>${winner.PoliticalParty}</td>
-         <td>${winner.Constituency}</td>
-          <td>${winner.District}</td>
-        <td>${winner.TotalVotes}</td>
-        <td>${winner.ElectionYear}</td>
-        <td>${winner.DateDeclared}</td>
+        <td>${mp.WinnerID}</td>
+        <td>${mp.FirstName}</td>
+        <td>${mp.LastName}</td>
+        <td>${mp.PoliticalParty}</td>
+         <td>${mp.Constituency}</td>
+          <td>${mp.District}</td>
+        <td>${mp.TotalVotes}</td>
+        <td>${mp.ElectionYear}</td>
+        <td>${mp.DateDeclared}</td>
         </tr>`;
         tableBody.innerHTML +=row;
     });
@@ -81,18 +81,18 @@ fetch("/Winner")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".w-winner");
-    data.forEach(winner => {
+    data.counsellor.forEach(w => {
         const row=`<tr>
-        <td>${winner.WinnerID}</td>
-        <td>${winner.FirstName}</td>
-        <td>${winner.LastName}</td>
-        <td>${winner.PoliticalParty}</td>
-        <td>${winner.Ward}</td>
-         <td>${winner.Constituency}</td>
-          <td>${winner.District}</td>
-        <td>${winner.TotalVotes}</td>
-        <td>${winner.ElectionYear}</td>
-        <td>${winner.DateDeclared}</td>
+        <td>${w.WinnerID}</td>
+        <td>${w.FirstName}</td>
+        <td>${w.LastName}</td>
+        <td>${w.PoliticalParty}</td>
+        <td>${w.Ward}</td>
+         <td>${w.Constituency}</td>
+          <td>${w.District}</td>
+        <td>${w.TotalVotes}</td>
+        <td>${w.ElectionYear}</td>
+        <td>${w.DateDeclared}</td>
         </tr>`;
         tableBody.innerHTML +=row;
     });
@@ -137,12 +137,12 @@ fetch("/Monitoring")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".monitorVotes");
-    data.forEach(monitor => {
+    data.votes.forEach(v => {
         const row=`<tr>
-        <td>${monitor.RegisteredVoters}</td>
-        <td>${monitor.VotersVoted}</td>
-        <td>${monitor.SpoiledBallots}</td>
-        <td>${monitor.ValidVotes}</td>
+        <td>${v.RegisteredVoters}</td>
+        <td>${v.VotersVoted}</td>
+        <td>${v.SpoiledBallots}</td>
+        <td>${v.ValidVotes}</td>
         </tr>`;
         tableBody.innerHTML +=row;
         
@@ -152,12 +152,12 @@ fetch("/Monitoring")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".monitorBallot");
-    data.forEach(monitor => {
+    data.ballot.forEach(b => {
         const row=`<tr>
-        <td>${monitor.BallotPapersIssued}</td>
-        <td>${monitor.BallotPapersUsed}</td>
-        <td>${monitor.RemainingBallots}</td>
-        <td>${monitor.BallotBoxStatus}</td>
+        <td>${b.BallotPapersIssued}</td>
+        <td>${b.BallotPapersUsed}</td>
+        <td>${b.RemainingBallots}</td>
+        <td>${b.BallotBoxStatus}</td>
         </tr>`;
         tableBody.innerHTML +=row;
     });
@@ -166,11 +166,11 @@ fetch("/Monitoring")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".monitorIncidents");
-    data.forEach(monitor => {
+    data.incidents.forEach(i => {
         const row=`<tr>
-        <td>${monitor.Time}</td>
-        <td>${monitor.IncidentDescription}</td>
-        <td>${monitor.Status}</td>
+        <td>${i.Time}</td>
+        <td>${i.IncidentDescription}</td>
+        <td>${i.Status}</td>
         </tr>`;
         tableBody.innerHTML +=row;
     });
@@ -179,11 +179,11 @@ fetch("/Monitoring")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".monitorStatus");
-    data.forEach(monitor => {
+    data.status.forEach(s => {
         const row=`<tr>
-        <td>${monitor.StationID}</td>
-        <td>${monitor.TransmissionTime}</td>
-        <td>${monitor.Status}</td>
+        <td>${s.StationID}</td>
+        <td>${s.TransmissionTime}</td>
+        <td>${s.Status}</td>
         </tr>`;
         tableBody.innerHTML +=row;
     });
@@ -192,14 +192,14 @@ fetch("/Officer")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".electionTable");
-    data.forEach(election => {
+    data.election.forEach(e => {
         const row=`<tr>
-        <td>${election.PresidingOfficerID}</td>
-        <td>${election.FirstName}</td>
-        <td>${election.LastName}</td>
-         <td>${election.PollingStationName}</td>
-          <td>${election.Status}</td>
-           <td>${election.Contact}</td>
+        <td>${e.ElectionOfficerID}</td>
+        <td>${e.FirstName}</td>
+        <td>${e.LastName}</td>
+         <td>${e.PollingStationName}</td>
+          <td>${e.Status}</td>
+           <td>${e.Contact}</td>
         </tr>`;
         tableBody.innerHTML +=row;
     });
@@ -208,14 +208,14 @@ fetch("/Officer")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".returningTable");
-    data.forEach(returning => {
+    data.returning.forEach(r => {
         const row=`<tr>
-        <td>${returning.ReturningOfficerID}</td>
-        <td>${returning.FirstName}</td>
-        <td>${returning.LastName}</td>
-         <td>${returning.Constituency}</td>
-          <td>${returning.District}</td>
-           <td>${returning.Contact}</td>
+        <td>${r.ReturningOfficerID}</td>
+        <td>${r.FirstName}</td>
+        <td>${r.LastName}</td>
+         <td>${r.Constituency}</td>
+          <td>${r.District}</td>
+           <td>${r.Contact}</td>
         </tr>`;
         tableBody.innerHTML +=row;
     });
@@ -224,14 +224,14 @@ fetch("/Officer")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".presidingTable");
-    data.forEach(presiding=> {
+    data.presiding.forEach(p=> {
         const row=`<tr>
-        <td>${presiding.PresidingOfficerID}</td>
-        <td>${presiding.FirstName}</td>
-        <td>${presiding.LastName}</td>
-         <td>${presiding.PollingStationName}</td>
-          <td>${presiding.Status}</td>
-           <td>${presiding.Contact}</td>
+        <td>${p.PresidingOfficerID}</td>
+        <td>${p.FirstName}</td>
+        <td>${p.LastName}</td>
+         <td>${p.PollingStationName}</td>
+          <td>${p.Status}</td>
+           <td>${p.Contact}</td>
         </tr>`;
         tableBody.innerHTML +=row;
     });
