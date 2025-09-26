@@ -9,7 +9,7 @@ body{
     color: var(--letters);
     background-size: cover;
     background-repeat:inherit;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Times New Roman', Times, serif;
     
 }
 
