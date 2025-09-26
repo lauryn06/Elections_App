@@ -62,16 +62,36 @@ app.get("/Vote",(req,res)=>{
         res.json(results);
     });
 });
-app.get("/Officer",(req,res)=>{
-    const sql="";
-    connection.query(sql,(err,results)=>{
-        if(err){
-            console.err("Failed to fetch data");
-            return;
-        }
-        res.json(results);
-    });
+app.get("/Officer", async (req, res) => {
+    try {
+        const [presiding] = await pool.query("SELECT * FROM PresidingOfficer");
+        const [returning] = await pool.query("SELECT * FROM ReturningOfficer");
+        const [election] = await pool.query("SELECT * FROM ElectionOfficer");
+
+        res.json({
+            presiding,
+            returning,
+            election
+        });
+    } catch (err) {
+        res.status(500).send("Error fetching officer data");
+    }
 });
+
+// app.get("/Officer",(req,res)=>{
+//     try{
+//         const[presiding]=awai
+//     }
+
+//     // const sql="";
+//     // connection.query(sql,(err,results)=>{
+//     //     if(err){
+//     //         console.err("Failed to fetch data");
+//     //         return;
+//     //     }
+//     //     res.json(results);
+//     // });
+// });
 app.get("/Voter",(req,res)=>{
     const sql="";
     connection.query(sql,(err,results)=>{
