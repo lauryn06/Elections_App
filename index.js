@@ -89,7 +89,7 @@ app.get("/Voter",(req,res)=>{
         res.json(results);
     });
 });
-app.get("/Officer", async (req, res) => {
+app.get("/Winner", async (req, res) => {
     try {
         const [president] = await pool.query("SELECT * FROM PresidingOfficer");
         const [MemberOfParliament] = await pool.query("SELECT * FROM ReturningOfficer");
@@ -104,16 +104,25 @@ app.get("/Officer", async (req, res) => {
         res.status(500).send("Error fetching winner data");
     }
 });
-app.get("/Monitoring",(req,res)=>{
-    const sql="";
-    connection.query(sql,(err,results)=>{
-        if(err){
-        console.err("Error fetching Voters");
-        return;
-        }
-        res.json(results);
-    });
+app.get("/Monitoring", async (req, res) => {
+    try {
+        const [VotingActivity] = await pool.query("SELECT * FROM PresidingOfficer");
+        const [BallotMaterials] = await pool.query("SELECT * FROM ReturningOfficer");
+        const [IncidentsReported] = await pool.query("SELECT * FROM ElectionOfficer");
+        const [Results] = await pool.query("SELECT * FROM ElectionOfficer");
+
+
+        res.json({
+            VotingActivity,
+            BallotMaterials,
+            IncidentsReported,
+            Results
+        });
+    } catch (err) {
+        res.status(500).send("Error fetching winner data");
+    }
 });
+
 app.get("/Polling Station",(req,res)=>{
     const sql="";
     connection.query(sql,(err,results)=>{
