@@ -97,7 +97,7 @@ fetch("/Winner")
         tableBody.innerHTML +=row;
     });
 });
-fetch("/Polling Station")
+fetch("/PollingStation")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".pollingTable");
@@ -114,7 +114,7 @@ fetch("/Polling Station")
     });
 });
 
-fetch("/Political Party")
+fetch("/PoliticalParty")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".partyTable");

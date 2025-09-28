@@ -32,108 +32,150 @@ app.get("/Winner",(req,res)=>{
 app.get("/Monitoring",(req,res)=>{
     res.sendFile(path.join(__dirname, "/Monitoring.html"));
 });
-app.get("/Polling Station",(req,res)=>{
+app.get("/PollingStation",(req,res)=>{
     res.sendFile(path.join(__dirname, "/Polling Station.html"));
 });
-app.get("/Political Party",(req,res)=>{
+app.get("/PoliticalParty",(req,res)=>{
     res.sendFile(path.join(__dirname, "/Political Party.html"));
 });
 
 //Fetching data from database 
 
-app.get("/candidate",(req,res)=>{
+app.get("/api/candidate",(req,res)=>{
     const sql="";
     connection.query(sql,(err,results)=>{
         if(err){
-        console.err("Error fetching candidates");
+        console.error("Error fetching candidates");
         return;
         }
         res.json(results);
     });
 });
 
-app.get("/Vote",(req,res)=>{
+app.get("/api/Vote",(req,res)=>{
     const sql="";
     connection.query(sql,(err,results)=>{
         if(err){
-        console.err("Error fetching Votes");
+        console.error("Error fetching Votes");
         return;
         }
         res.json(results);
     });
 });
-app.get("/Officer", async (req, res) => {
-    try {
-        const [presiding] = await pool.query("SELECT * FROM PresidingOfficer");
-        const [returning] = await pool.query("SELECT * FROM ReturningOfficer");
-        const [election] = await pool.query("SELECT * FROM ElectionOfficer");
+app.get("/api/Officer", (req, res) => {
+    connection.query("SELECT * FROM PresidingOfficer", (err, presiding) => {
+        if (err) return res.status(500).send("Error fetching Presiding Officers");
 
-        res.json({
-            presiding,
-            returning,
-            election
+        connection.query("SELECT * FROM ReturningOfficer", (err, returning) => {
+            if (err) return res.status(500).send("Error fetching Returning Officers");
+
+            connection.query("SELECT * FROM ElectionOfficer", (err, election) => {
+                if (err) return res.status(500).send("Error fetching Election Officers");
+
+                res.json({ presiding, returning, election });
+            });
         });
-    } catch (err) {
-        res.status(500).send("Error fetching officer data");
-    }
+    });
 });
 
 
-app.get("/Voter",(req,res)=>{
+app.get("/api/Voter",(req,res)=>{
     const sql="";
     connection.query(sql,(err,results)=>{
         if(err){
-            console.err("Failed to fetch voters");
+            console.error("Failed to fetch voters");
             return;
         }
         res.json(results);
     });
 });
-app.get("/Winner", async (req, res) => {
-    try {
-        const [president] = await pool.query("SELECT * FROM PresidingOfficer");
-        const [MemberOfParliament] = await pool.query("SELECT * FROM ReturningOfficer");
-        const [Counsellor] = await pool.query("SELECT * FROM ElectionOfficer");
+app.get("/api/Winner", (req, res) => {
+    // Fetch president
+    connection.query("SELECT * FROM PresidingOfficer", (err, president) => {
+        if (err) {
+            console.error("Error fetching president:", err);
+            return res.status(500).send("Error fetching president data");
+        }
 
-        res.json({
-            president,
-            MemberOfParliament,
-            Counsellor
+        // Fetch Member of Parliament
+        connection.query("SELECT * FROM ReturningOfficer", (err, MemberOfParliament) => {
+            if (err) {
+                console.error("Error fetching Member of Parliament:", err);
+                return res.status(500).send("Error fetching MP data");
+            }
+
+            // Fetch Counsellor
+            connection.query("SELECT * FROM ElectionOfficer", (err, Counsellor) => {
+                if (err) {
+                    console.error("Error fetching Counsellor:", err);
+                    return res.status(500).send("Error fetching Counsellor data");
+                }
+
+                // Send all results as JSON
+                res.json({
+                    president,
+                    MemberOfParliament,
+                    Counsellor
+                });
+            });
         });
-    } catch (err) {
-        res.status(500).send("Error fetching winner data");
-    }
+    });
 });
-app.get("/Monitoring", async (req, res) => {
-    try {
-        const [VotingActivity] = await pool.query("SELECT * FROM PresidingOfficer");
-        const [BallotMaterials] = await pool.query("SELECT * FROM ReturningOfficer");
-        const [IncidentsReported] = await pool.query("SELECT * FROM ElectionOfficer");
-        const [Results] = await pool.query("SELECT * FROM ElectionOfficer");
 
+app.get("/api/Monitoring", (req, res) => {
+    // Fetch VotingActivity
+    connection.query("SELECT * FROM PresidingOfficer", (err, VotingActivity) => {
+        if (err) {
+            console.error("Error fetching Voting Activity:", err);
+            return res.status(500).send("Error fetching Voting Activity");
+        }
 
-        res.json({
-            VotingActivity,
-            BallotMaterials,
-            IncidentsReported,
-            Results
+        // Fetch BallotMaterials
+        connection.query("SELECT * FROM ReturningOfficer", (err, BallotMaterials) => {
+            if (err) {
+                console.error("Error fetching Ballot Materials:", err);
+                return res.status(500).send("Error fetching Ballot Materials");
+            }
+
+            // Fetch IncidentsReported
+            connection.query("SELECT * FROM ElectionOfficer", (err, IncidentsReported) => {
+                if (err) {
+                    console.error("Error fetching Incidents Reported:", err);
+                    return res.status(500).send("Error fetching Incidents Reported");
+                }
+
+                // Fetch Results
+                connection.query("SELECT * FROM ElectionOfficer", (err, Results) => {
+                    if (err) {
+                        console.error("Error fetching Results:", err);
+                        return res.status(500).send("Error fetching Results");
+                    }
+
+                    // Send all results as JSON
+                    res.json({
+                        VotingActivity,
+                        BallotMaterials,
+                        IncidentsReported,
+                        Results
+                    });
+                });
+            });
         });
-    } catch (err) {
-        res.status(500).send("Error fetching winner data");
-    }
+    });
 });
 
-app.get("/Polling Station",(req,res)=>{
+
+app.get("/api/PollingStation",(req,res)=>{
     const sql="";
     connection.query(sql,(err,results)=>{
         if(err){
-        console.err("Error fetching Voters");
+        console.error("Error fetching Voters");
         return;
         }
         res.json(results);
     });
 });
-app.get("/Political Party",(req,res)=>{
+app.get("/api/PoliticalParty",(req,res)=>{
     const sql="";
     connection.query(sql,(err,results)=>{
         if(err){
