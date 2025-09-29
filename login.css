@@ -10,7 +10,7 @@ body {
 }
 
 .login-container {
-  background: #2e78f0; /* same blue as your sidebar */
+  background: #6C757D; /* same blue as your sidebar */
   padding: 2rem;
   border-radius: 12px;
   width: 320px;
@@ -45,7 +45,7 @@ body {
 
 .login-btn {
   background: white;
-  color: #2e78f0;
+  color: #6C757D;
   border: none;
   padding: 0.7rem 1.2rem;
   border-radius: 6px;
