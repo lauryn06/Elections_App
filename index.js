@@ -131,7 +131,7 @@ app.get("/api/Monitoring", (req, res) => {
         }
 
         // Fetch BallotMaterials
-        connection.query("SELECT * FROM ReturningOfficer", (err, BallotMaterials) => {
+        connection.query("SELECT SUM(bb.TotalBallots) AS BallotPapersIssued, COUNT(bp.BallotPaperID) AS BallotPapersUsed, SUM(bb.TotalBallots) - COUNT(bp.BallotPaperID) AS RemainingBallots, CASE WHEN SUM(bb.TotalBallots) - COUNT(bp.BallotPaperID) > 0 THEN 'Not Full' ELSE 'Full' END AS BallotBoxStatus FROM BallotBox bb LEFT JOIN BallotPaper bp ON bb.ConstituencyID = bp.ConstituencyID;", (err, BallotMaterials) => {
             if (err) {
                 console.error("Error fetching Ballot Materials:", err);
                 return res.status(500).send("Error fetching Ballot Materials");
