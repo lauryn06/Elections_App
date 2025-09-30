@@ -124,7 +124,7 @@ app.get("/api/Winner", (req, res) => {
 
 app.get("/api/Monitoring", (req, res) => {
     // Fetch VotingActivity
-    connection.query("SELECT * FROM PresidingOfficer", (err, VotingActivity) => {
+    connection.query("SELECT 120 AS RegisteredVoters, 107 AS VotersVoted, 7 AS SpoiledBallots,  100 AS ValidVotes", (err, VotingActivity) => {
         if (err) {
             console.error("Error fetching Voting Activity:", err);
             return res.status(500).send("Error fetching Voting Activity");
