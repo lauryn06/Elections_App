@@ -42,7 +42,7 @@ app.get("/PoliticalParty",(req,res)=>{
 //Fetching data from database 
 
 app.get("/api/candidate",(req,res)=>{
-    const sql="";
+    const sql="SELECT c.CandidateID, p.FName, p.LName, pp.Name AS PoliticalParty, pos.Name AS Position, con.Name AS Constituency, d.Name AS District, w.Name AS Ward FROM Candidate c JOIN Person p ON c.PersonID = p.PersonID JOIN PoliticalParty pp ON c.PartyID = pp.PartyID JOIN Position pos ON c.PositionID = pos.PositionID LEFT JOIN Constituency con ON c.ConstituencyID = con.ConstituencyID LEFT JOIN District d ON con.DistrictID = d.DistrictID LEFT JOIN Ward w ON c.WardID = w.WardID WHERE p.PersonID BETWEEN 100 AND 120 ORDER BY pos.Name, c.CandidateID;";
     connection.query(sql,(err,results)=>{
         if(err){
         console.error("Error fetching candidates");
