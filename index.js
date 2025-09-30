@@ -91,21 +91,21 @@ app.get("/api/Voter",(req,res)=>{
 });
 app.get("/api/Winner", (req, res) => {
     // Fetch president
-    connection.query("SELECT * FROM PresidingOfficer", (err, president) => {
+    connection.query("SELECT w.WinnerID, p.FName AS FirstName, p.LName AS LastName, pp.Name AS PoliticalParty, w.VotesReceived AS TotalVotes, YEAR(e.Date) AS ElectionYear, w.DeclarationDate FROM Winner w JOIN Candidate c ON w.CandidateID = c.CandidateID JOIN Person p ON c.PersonID = p.PersonID JOIN PoliticalParty pp ON c.PartyID = pp.PartyID JOIN Election e ON w.ElectionID = e.ElectionID WHERE c.PositionID = 1", (err, president) => {
         if (err) {
             console.error("Error fetching president:", err);
             return res.status(500).send("Error fetching president data");
         }
 
         // Fetch Member of Parliament
-        connection.query("SELECT * FROM ReturningOfficer", (err, MemberOfParliament) => {
+        connection.query("SELECT w.WinnerID, p.FName AS FirstName, p.LName AS LastName, pp.Name AS PoliticalParty, con.Name AS Constituency, d.Name AS District, w.VotesReceived AS TotalVotes, YEAR(e.Date) AS ElectionYear, w.DeclarationDate FROM Winner w JOIN Candidate c ON w.CandidateID = c.CandidateID JOIN Person p ON c.PersonID = p.PersonID JOIN PoliticalParty pp ON c.PartyID = pp.PartyID LEFT JOIN Constituency con ON w.ConstituencyID = con.ConstituencyID LEFT JOIN District d ON con.DistrictID = d.DistrictID JOIN Election e ON w.ElectionID = e.ElectionID WHERE c.PositionID = 2", (err, MemberOfParliament) => {
             if (err) {
                 console.error("Error fetching Member of Parliament:", err);
                 return res.status(500).send("Error fetching MP data");
             }
 
             // Fetch Counsellor
-            connection.query("SELECT * FROM ElectionOfficer", (err, Counsellor) => {
+            connection.query("SELECT w.WinnerID, p.FName AS FirstName, p.LName AS LastName, pp.Name AS PoliticalParty, wa.Name AS Ward, con.Name AS Constituency, d.Name AS District, w.VotesReceived AS TotalVotes, YEAR(e.Date) AS ElectionYear, w.DeclarationDate FROM Winner w JOIN Candidate c ON w.CandidateID = c.CandidateID JOIN Person p ON c.PersonID = p.PersonID JOIN PoliticalParty pp ON c.PartyID = pp.PartyID LEFT JOIN Ward wa ON w.WardID = wa.WardID LEFT JOIN Constituency con ON w.ConstituencyID = con.ConstituencyID LEFT JOIN District d ON con.DistrictID = d.DistrictID JOIN Election e ON w.ElectionID = e.ElectionID WHERE c.PositionID = 3", (err, Counsellor) => {
                 if (err) {
                     console.error("Error fetching Counsellor:", err);
                     return res.status(500).send("Error fetching Counsellor data");
