@@ -80,7 +80,7 @@ app.get("/api/Officer", (req, res) => {
 
 
 app.get("/api/Voter",(req,res)=>{
-    const sql="";
+    const sql="SELECT v.VoterID, p.FName AS FirstName, p.LName AS LastName, p.NRC, p.Gender FROM Voter v JOIN Person p ON v.PersonID = p.PersonID";
     connection.query(sql,(err,results)=>{
         if(err){
             console.error("Failed to fetch voters");
