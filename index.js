@@ -42,7 +42,7 @@ app.get("/PoliticalParty",(req,res)=>{
 //Fetching data from database 
 
 app.get("/api/candidate",(req,res)=>{
-    const sql="SELECT c.CandidateID, p.FName, p.LName, pp.Name AS PoliticalParty, pos.Name AS Position, con.Name AS Constituency, d.Name AS District, w.Name AS Ward FROM Candidate c JOIN Person p ON c.PersonID = p.PersonID JOIN PoliticalParty pp ON c.PartyID = pp.PartyID JOIN Position pos ON c.PositionID = pos.PositionID LEFT JOIN Constituency con ON c.ConstituencyID = con.ConstituencyID LEFT JOIN District d ON con.DistrictID = d.DistrictID LEFT JOIN Ward w ON c.WardID = w.WardID WHERE p.PersonID BETWEEN 100 AND 120 ORDER BY pos.Name, c.CandidateID;";
+    const sql="SELECT c.CandidateID, p.FName, p.LName, pp.Name AS PoliticalParty, pos.Name AS Position, con.Name AS Constituency, d.Name AS District, w.Name AS Ward FROM Candidate c JOIN Person p ON c.PersonID = p.PersonID JOIN PoliticalParty pp ON c.PartyID = pp.PartyID JOIN Position pos ON c.PositionID = pos.PositionID LEFT JOIN Constituency con ON c.ConstituencyID = con.ConstituencyID LEFT JOIN District d ON con.DistrictID = d.DistrictID LEFT JOIN Ward w ON c.WardID = w.WardID WHERE p.PersonID BETWEEN 100 AND 120 ORDER BY pos.Name, c.CandidateID";
     connection.query(sql,(err,results)=>{
         if(err){
         console.error("Error fetching candidates");
@@ -53,7 +53,7 @@ app.get("/api/candidate",(req,res)=>{
 });
 
 app.get("/api/Vote",(req,res)=>{
-    const sql="";
+    const sql="SELECT c.CandidateID, p.FName, p.LName, pp.Name AS PoliticalParty, pos.Name AS Position, d.Name AS District, COUNT(v.CandidateID) AS VoteCount FROM Candidate c JOIN Person p ON c.PersonID = p.PersonID JOIN PoliticalParty pp ON c.PartyID = pp.PartyID JOIN Position pos ON c.PositionID = pos.PositionID LEFT JOIN Constituency con ON c.ConstituencyID = con.ConstituencyID LEFT JOIN District d ON con.DistrictID = d.DistrictID LEFT JOIN Vote v ON c.CandidateID = v.CandidateID WHERE p.PersonID BETWEEN 100 AND 120 GROUP BY c.CandidateID, p.FName, p.LName, pp.Name, pos.Name, d.Name ORDER BY pos.Name, c.CandidateID";
     connection.query(sql,(err,results)=>{
         if(err){
         console.error("Error fetching Votes");
