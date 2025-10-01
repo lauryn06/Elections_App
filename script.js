@@ -22,7 +22,8 @@ fetch("/api/candidate")
 fetch("/api/Voter")
 .then(response =>response.json())
 .then(data=>{
-    const tableBody=document.querySelector(".voterTable");
+    const tableBody=document.querySelector(".voterTable tbody");
+        tableBody.innerHTML = "";
     data.forEach(voter => {
         const row=`<tr>
         <td>${voter.VoterID}</td>
@@ -71,6 +72,7 @@ fetch("/api/Winner")
         </tr>`;
         presidentTable.innerHTML += row;
     });
+    highlightWinners();
 });
 
 fetch("/api/Winner")
@@ -91,6 +93,7 @@ fetch("/api/Winner")
         </tr>`;
         tableBody.innerHTML +=row;
     });
+   
 });
 
 fetch("/api/Winner")
@@ -112,6 +115,7 @@ fetch("/api/Winner")
         </tr>`;
         tableBody.innerHTML +=row;
     });
+    
 });
 fetch("/api/PollingStation")
 .then(response =>response.json())
@@ -252,3 +256,16 @@ fetch("/api/Officer")
         tableBody.innerHTML +=row;
     });
 });
+
+function filterTable(tableClass, inputId) {
+    const input = document.getElementById(inputId);
+    input.addEventListener("input", () => {
+        const filter = input.value.toLowerCase();
+        document.querySelectorAll(`${tableClass} tbody tr`).forEach(row => {
+            row.style.display = row.textContent.toLowerCase().includes(filter) ? "" : "none";
+        });
+    });
+}
+
+// Example usage:
+filterTable(".voterTable", "voterSearch");

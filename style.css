@@ -23,7 +23,7 @@ body{
     display: flex;
     flex-direction: row;
     background-color: var(--nav_color);
-    height: 100vh;
+    height: 1000dvh;
     width: 20vw;
 }
 
