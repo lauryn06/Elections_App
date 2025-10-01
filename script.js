@@ -43,8 +43,8 @@ fetch("/api/Vote")
     data.forEach(vote => {
         const row=`<tr>
         <td>${vote.CandidateID}</td>
-        <td>${vote.FirstName}</td>
-        <td>${vote.LastName}</td>
+        <td>${vote.FName}</td>
+        <td>${vote.LName}</td>
         <td>${vote.PoliticalParty}</td>
         <td>${vote.Position}</td>
         <td>${vote.District}</td>
@@ -67,7 +67,7 @@ fetch("/api/Winner")
             <td>${p.PoliticalParty}</td>
             <td>${p.TotalVotes}</td>
             <td>${p.ElectionYear}</td>
-            <td>${p.DateDeclared}</td>
+            <td>${p.DeclarationDate}</td>
         </tr>`;
         presidentTable.innerHTML += row;
     });
@@ -87,7 +87,7 @@ fetch("/api/Winner")
           <td>${mp.District}</td>
         <td>${mp.TotalVotes}</td>
         <td>${mp.ElectionYear}</td>
-        <td>${mp.DateDeclared}</td>
+        <td>${mp.DeclarationDate}</td>
         </tr>`;
         tableBody.innerHTML +=row;
     });
@@ -108,7 +108,7 @@ fetch("/api/Winner")
           <td>${w.District}</td>
         <td>${w.TotalVotes}</td>
         <td>${w.ElectionYear}</td>
-        <td>${w.DateDeclared}</td>
+        <td>${w.DeclarationDate}</td>
         </tr>`;
         tableBody.innerHTML +=row;
     });
