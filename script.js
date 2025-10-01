@@ -54,12 +54,29 @@ fetch("/api/Vote")
         
     });
 });
-
+fetch("/api/Winner")
+.then(response => response.json())
+.then(data => {
+    // President Table
+    const presidentTable = document.querySelector(".p-winner");
+    data.president.forEach(p => {
+        const row = `<tr>
+            <td>${p.WinnerID}</td>
+            <td>${p.FirstName}</td>
+            <td>${p.LastName}</td>
+            <td>${p.PoliticalParty}</td>
+            <td>${p.TotalVotes}</td>
+            <td>${p.ElectionYear}</td>
+            <td>${p.DateDeclared}</td>
+        </tr>`;
+        presidentTable.innerHTML += row;
+    });
+});
 
 fetch("/api/Winner")
 .then(response =>response.json())
 .then(data=>{
-    const tableBody=document.querySelector(".m-winner");
+    const tableBody=document.querySelector(".m-Winner");
     data.MemberOfParliament.forEach(mp => {
         const row=`<tr>
         <td>${mp.WinnerID}</td>

@@ -101,7 +101,7 @@ button{
      box-shadow: 3px 3px 3px black; 
 }
 .VoterButton > button:hover, button:hover, a:hover{
-    background-color: var(--tables);
+    background-color: var(--letters);
     border-radius: 2.5rem;
 }
 #cancel{
@@ -125,7 +125,8 @@ table{
     font-size: smaller;
 }
 th{
-font-weight: 500;
+font-weight: bold;
+border: 1px solid #000; 
 }
 h4{
   font-weight: 900;  
@@ -133,4 +134,7 @@ h4{
   padding-left:7.5rem ;
   padding-top: 1rem;
 }
-
+td{
+    border: 1px solid #000; 
+    padding-left: 0.5rem;
+}
