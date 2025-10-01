@@ -269,3 +269,4 @@ function filterTable(tableClass, inputId) {
 
 // Example usage:
 filterTable(".voterTable", "voterSearch");
+
