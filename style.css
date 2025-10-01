@@ -26,7 +26,13 @@ body{
     height: 1000dvh;
     width: 20vw;
 }
-
+.search{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    height: 2rem;
+    border-radius: 1rem;
+   padding-left: 0.5rem;
+}
 .Menu{
     display: flex;
     flex-direction: column;
