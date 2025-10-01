@@ -179,7 +179,7 @@ app.get("/api/PoliticalParty",(req,res)=>{
     const sql="SELECT PartyID, Name AS PartyName, Abbreviation, Leader_FName AS LeaderFirstName, Leader_LName AS LeaderLastName, FounderYear, Location, Contact_Info AS Contact FROM PoliticalParty";
     connection.query(sql,(err,results)=>{
         if(err){
-        console.err("Error fetching Voters");
+        console.error("Error fetching Voters");
         return;
         }
         res.json(results);

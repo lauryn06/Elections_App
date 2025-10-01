@@ -1,13 +1,12 @@
-fetch("/Candidate")
+fetch("/api/candidate")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".candidateTable");
     data.forEach(Candidate => {
         const row=`<tr>
         <td>${Candidate.CandidateID}</td>
-        <td>${Candidate.FirstName}</td>
-        <td>${Candidate.LastName}</td>
-        <td>${Candidate.DOB}</td>
+        <td>${Candidate.FName}</td>
+        <td>${Candidate.LName}</td>
         <td>${Candidate.PoliticalParty}</td>
         <td>${Candidate.Position}</td>
         <td>${Candidate.Constituency}</td>
@@ -20,7 +19,7 @@ fetch("/Candidate")
 });
 
 
-fetch("/Voter")
+fetch("/api/Voter")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".voterTable");
@@ -37,7 +36,7 @@ fetch("/Voter")
     });
 });
 
-fetch("/Votes")
+fetch("/api/Vote")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".voteTable");
@@ -57,7 +56,7 @@ fetch("/Votes")
 });
 
 
-fetch("/Winner")
+fetch("/api/Winner")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".m-winner");
@@ -77,11 +76,11 @@ fetch("/Winner")
     });
 });
 
-fetch("/Winner")
+fetch("/api/Winner")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".w-winner");
-    data.counsellor.forEach(w => {
+    data.Counsellor.forEach(w => {
         const row=`<tr>
         <td>${w.WinnerID}</td>
         <td>${w.FirstName}</td>
@@ -97,7 +96,7 @@ fetch("/Winner")
         tableBody.innerHTML +=row;
     });
 });
-fetch("/PollingStation")
+fetch("/api/PollingStation")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".pollingTable");
@@ -114,7 +113,7 @@ fetch("/PollingStation")
     });
 });
 
-fetch("/PoliticalParty")
+fetch("/api/PoliticalParty")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".partyTable");
@@ -133,11 +132,11 @@ fetch("/PoliticalParty")
         
     });
 });
-fetch("/Monitoring")
+fetch("/api/Monitoring")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".monitorVotes");
-    data.votes.forEach(v => {
+    data.VotingActivity.forEach(v => {
         const row=`<tr>
         <td>${v.RegisteredVoters}</td>
         <td>${v.VotersVoted}</td>
@@ -148,11 +147,11 @@ fetch("/Monitoring")
         
     });
 });
-fetch("/Monitoring")
+fetch("/api/Monitoring")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".monitorBallot");
-    data.ballot.forEach(b => {
+    data.BallotMaterials.forEach(b => {
         const row=`<tr>
         <td>${b.BallotPapersIssued}</td>
         <td>${b.BallotPapersUsed}</td>
@@ -162,11 +161,11 @@ fetch("/Monitoring")
         tableBody.innerHTML +=row;
     });
 });
-fetch("/Monitoring")
+fetch("/api/Monitoring")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".monitorIncidents");
-    data.incidents.forEach(i => {
+    data.IncidentsReported.forEach(i => {
         const row=`<tr>
         <td>${i.Time}</td>
         <td>${i.IncidentDescription}</td>
@@ -175,11 +174,11 @@ fetch("/Monitoring")
         tableBody.innerHTML +=row;
     });
 });
-fetch("/Monitoring")
+fetch("/api/Monitoring")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".monitorStatus");
-    data.status.forEach(s => {
+    data.Results.forEach(s => {
         const row=`<tr>
         <td>${s.StationID}</td>
         <td>${s.TransmissionTime}</td>
@@ -188,7 +187,7 @@ fetch("/Monitoring")
         tableBody.innerHTML +=row;
     });
 });
-fetch("/Officer")
+fetch("/api/Officer")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".electionTable");
@@ -204,7 +203,7 @@ fetch("/Officer")
         tableBody.innerHTML +=row;
     });
 });
-fetch("/Officer")
+fetch("/api/Officer")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".returningTable");
@@ -220,7 +219,7 @@ fetch("/Officer")
         tableBody.innerHTML +=row;
     });
 });
-fetch("/Officer")
+fetch("/api/Officer")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".presidingTable");
