@@ -236,7 +236,7 @@ fetch("/api/BallotPaper")
 .then(response =>response.json())
 .then(data=>{
     const tableBody=document.querySelector(".BallotTable");
-    data.BallotPaper.forEach(p=> {
+    data.forEach(p=> {
         const row=`<tr>
         <td>${p.BallotPaperID}</td>
         <td>${p.WardID}</td>

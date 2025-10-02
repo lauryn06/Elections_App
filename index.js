@@ -144,9 +144,7 @@ app.get("/api/Monitoring", (req, res) => {
 
                     res.json({
                         VotingActivity,
-                        BallotMaterials,
-                        IncidentsReported,
-                        Results
+                        BallotMaterials
                     });
                 });
             });
@@ -175,13 +173,13 @@ app.get("/api/PoliticalParty",(req,res)=>{
     });
 });
 app.get("/api/BallotPaper",(req,res)=>{
-    const sql="SELECT bp.BallotPaperID,bp.WardID,bp.ConstituencyID,bp.PositionID,bp.CandidateID,bp.Status,bp.TimeStampFROM BallotPaper bp;";
-    connection.query(sql,(err,results)=>{
+    const sql="SELECT * FROM BallotPaper;";
+    connection.query(sql,(err,rows)=>{
         if(err){
         console.error("Error fetching BallotPapers");
         return;
         }
-        res.json(results);
+        res.json(rows);
     });
 });
 
