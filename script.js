@@ -182,32 +182,8 @@ fetch("/api/Monitoring")
         tableBody.innerHTML +=row;
     });
 });
-fetch("/api/Monitoring")
-.then(response =>response.json())
-.then(data=>{
-    const tableBody=document.querySelector(".monitorIncidents");
-    data.IncidentsReported.forEach(i => {
-        const row=`<tr>
-        <td>${i.Time}</td>
-        <td>${i.IncidentDescription}</td>
-        <td>${i.Status}</td>
-        </tr>`;
-        tableBody.innerHTML +=row;
-    });
-});
-fetch("/api/Monitoring")
-.then(response =>response.json())
-.then(data=>{
-    const tableBody=document.querySelector(".monitorStatus");
-    data.Results.forEach(s => {
-        const row=`<tr>
-        <td>${s.StationID}</td>
-        <td>${s.TransmissionTime}</td>
-        <td>${s.Status}</td>
-        </tr>`;
-        tableBody.innerHTML +=row;
-    });
-});
+
+
 fetch("/api/Officer")
 .then(response =>response.json())
 .then(data=>{

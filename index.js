@@ -141,21 +141,7 @@ app.get("/api/Monitoring", (req, res) => {
                 return res.status(500).send("Error fetching Ballot Materials");
             }
 
-            // // Fetch IncidentsReported
-            // connection.query("SELECT * FROM ElectionOfficer", (err, IncidentsReported) => {
-            //     if (err) {
-            //         console.error("Error fetching Incidents Reported:", err);
-            //         return res.status(500).send("Error fetching Incidents Reported");
-            //     }
 
-            //     // Fetch Results
-            //     connection.query("SELECT * FROM ElectionOfficer", (err, Results) => {
-            //         if (err) {
-            //             console.error("Error fetching Results:", err);
-            //             return res.status(500).send("Error fetching Results");
-            //         }
-
-                    // Send all results as JSON
                     res.json({
                         VotingActivity,
                         BallotMaterials,
