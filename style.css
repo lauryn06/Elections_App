@@ -26,7 +26,7 @@ body{
     height: 1000dvh;
     width: 20vw;
 }
-.search, #firstName,#lastName,#gender{
+.search, #firstName,#lastName,#gender, #NRC{
     margin-top: 0.5rem;
     height: 2rem;
     border-radius: 1rem;
@@ -41,20 +41,20 @@ button{
 }
 .form{
     margin-top: 3rem;
-    margin-left: 12rem;
+    margin-left: 3rem;
     background-color: rgba(128, 128, 128, 0.418);
-    height:15rem;
-    width: 20rem;
+    height:22rem;
+    width: 15rem;
     border-radius: 1rem; 
 }
-button, #firstName, #lastName, .search, h5, #gender{
+button, #firstName, #lastName, .search, h5, #gender, #NRC{
     margin-left: 1rem;
 }
 h5{
     color: var(--tables);
 }
-input{
-    width: 18rem;
+input,#gender{
+    width: 11rem;
 }
 .Menu{
     display: flex;

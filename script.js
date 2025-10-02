@@ -272,4 +272,59 @@ function filterTable(tableClass, inputId) {
 // Example usage:
 filterTable(".voterTable", "voterSearch");
 
+document.addEventListener("DOMContentLoaded", () => {
+    const saveBtn = document.getElementById("saveBtn");
+    const clearBtn = document.getElementById("clearBtn");
+    const message = document.getElementById("message");
+    const voterTableBody = document.querySelector(".voterTable tbody");
+
+    saveBtn.addEventListener("click", () => {
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const NRC = document.getElementById("NRC").value.trim();
+        const gender = document.getElementById("gender").value;
+
+        if (!firstName || !lastName) {
+            message.textContent = "Please fill in all fields!";
+            message.style.color = "red";
+            return;
+        }
+
+        // Generate a simple VoterID (incremental or random)
+        const voterID = voterTableBody.children.length + 1;
+
+        // Create new table row
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = `
+            <td>${voterID}</td>
+            <td>${firstName}</td>
+            <td>${lastName}</td>
+            <td>${NRC}</td> 
+            <td>${gender}</td>
+        `;
+
+        // Add the row to the table
+        voterTableBody.appendChild(newRow);
+
+        // Clear inputs
+        document.getElementById("firstName").value = "";
+        document.getElementById("lastName").value = "";
+           document.getElementById("NRC").value = "";
+        document.getElementById("gender").value = "Male";
+
+        message.textContent = "Voter added successfully!";
+        message.style.color = "green";
+    });
+
+    // Clear button
+    clearBtn.addEventListener("click", () => {
+        document.getElementById("firstName").value = "";
+        document.getElementById("lastName").value = "";
+           document.getElementById("NRC").value = "";
+        document.getElementById("gender").value = "Male";
+        message.textContent = "";
+    });
+});
+
+
  
