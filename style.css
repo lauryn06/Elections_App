@@ -26,12 +26,32 @@ body{
     height: 1000dvh;
     width: 20vw;
 }
-.search{
-    margin-left: 40rem;
+.search, #firstName,#lastName{
     margin-top: 0.5rem;
     height: 2rem;
     border-radius: 1rem;
    padding-left: 0.5rem;
+}
+button{
+    color: var(--background);
+    background-color: var(--tables);
+    height: 2rem;
+    width: 5rem;
+    border-radius: 1rem;
+}
+.form{
+    margin-top: 3rem;
+    margin-left: 23rem;
+    background-color: rgba(128, 128, 128, 0.418);
+    height:20rem;
+    width: 20rem;
+    
+}
+button, #firstName, #lastName, .search, h5{
+    margin-left: 1rem;
+}
+h5{
+    color: var(--background);
 }
 .Menu{
     display: flex;
