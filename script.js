@@ -191,9 +191,9 @@ fetch("/api/Officer")
     data.election.forEach(e => {
         const row=`<tr>
         <td>${e.ElectionOfficerID}</td>
-        <td>${e.FirstName}</td>
-        <td>${e.LastName}</td>
-         <td>${e.PollingStationName}</td>
+        <td>${e.FName}</td>
+        <td>${e.LName}</td>
+         <td>${e.Name}</td>
            <td>${e.Contact}</td>
         </tr>`;
         tableBody.innerHTML +=row;
