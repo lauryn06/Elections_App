@@ -144,3 +144,16 @@ td{
     border: 1px solid #000; 
     padding-left: 0.5rem;
 }
+
+.valid {
+    background-color: #c8e6c9; /* light green */
+}
+
+.invalid {
+    background-color: #ffcdd2; /* light red */
+}
+
+.blank {
+    background-color: #fff9c4; /* light yellow */
+}
+

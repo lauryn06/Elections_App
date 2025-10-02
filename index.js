@@ -73,7 +73,7 @@ app.get("/api/Officer", (req, res) => {
         connection.query("SELECT ro.OfficerID AS ReturningOfficerID, p.FName AS FirstName, p.LName AS LastName, c.Name AS Constituency, d.Name AS District, ro.ContactInfo AS Contact FROM ReturningOfficer ro JOIN Person p ON ro.PersonID = p.PersonID JOIN Constituency c ON ro.ConstituencyID = c.ConstituencyID LEFT JOIN District d ON c.DistrictID = d.DistrictID", (err, returning) => {
             if (err) return res.status(500).send("Error fetching Returning Officers");
 
-            connection.query("SELECT eo.ElectionOfficerID, p.FName AS FirstName, p.LName AS LastName, ps.Name AS PollingStationName, eo.Contact FROM ElectionOfficer eo JOIN Person p ON eo.PersonID = p.PersonID LEFT JOIN PollingStation ps ON eo.PollingStationID = ps.StationID", (err, election) => {
+            connection.query("SELECT eo.ElectionOfficerID, p.FName, p.LName,ps.Name,  eo.ContactFROM ElectionOfficer eoJOIN Person p ON eo.PersonID = p.PersonID JOIN PollingStation ps ON eo.PollingStationID = ps.StationID;", (err, election) => {
                 if (err) return res.status(500).send("Error fetching Election Officers");
 
                 res.json({ presiding, returning, election });
@@ -173,7 +173,7 @@ app.get("/api/PoliticalParty",(req,res)=>{
     });
 });
 app.get("/api/BallotPaper",(req,res)=>{
-    const sql="SELECT * FROM BallotPaper;";
+    const sql="SELECT * FROM BallotPaper ORDER BY PositionID;";
     connection.query(sql,(err,rows)=>{
         if(err){
         console.error("Error fetching BallotPapers");

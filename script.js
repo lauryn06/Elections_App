@@ -194,7 +194,6 @@ fetch("/api/Officer")
         <td>${e.FirstName}</td>
         <td>${e.LastName}</td>
          <td>${e.PollingStationName}</td>
-          <td>${e.Status}</td>
            <td>${e.Contact}</td>
         </tr>`;
         tableBody.innerHTML +=row;
@@ -235,9 +234,18 @@ fetch("/api/Officer")
 fetch("/api/BallotPaper")
 .then(response =>response.json())
 .then(data=>{
-    const tableBody=document.querySelector(".BallotTable");
+    const tableBody=document.querySelector(".BallotTable tbody");
+    tableBody.innerHTML="";
     data.forEach(p=> {
-        const row=`<tr>
+
+        const row=document.createElement("tr");
+const status = p.Status.trim().toLowerCase();
+      if (status === "valid") row.classList.add("valid");
+      else if (status === "invalid") row.classList.add("invalid");
+      else if (status === "blank") row.classList.add("blank");
+    
+         row.innerHTML=`
+        
         <td>${p.BallotPaperID}</td>
         <td>${p.WardID}</td>
         <td>${p.ConstituencyID}</td>
@@ -245,8 +253,9 @@ fetch("/api/BallotPaper")
          <td>${p.TimeStamp}</td>
           <td>${p.Status}</td>
            <td>${p.CandidateID}</td>
-        </tr>`;
-        tableBody.innerHTML +=row;
+        `;
+        tableBody.appendChild(row);
+    
     });
 });
 
