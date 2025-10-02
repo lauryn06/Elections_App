@@ -256,6 +256,23 @@ fetch("/api/Officer")
         tableBody.innerHTML +=row;
     });
 });
+fetch("/api/BallotPaper")
+.then(response =>response.json())
+.then(data=>{
+    const tableBody=document.querySelector(".BallotTable");
+    data.BallotPaper.forEach(p=> {
+        const row=`<tr>
+        <td>${p.BallotPaperID}</td>
+        <td>${p.WardID}</td>
+        <td>${p.ConstituencyID}</td>
+         <td>${p.PositionID}</td>
+         <td>${p.TimeStamp}</td>
+          <td>${p.Status}</td>
+           <td>${p.CandidateID}</td>
+        </tr>`;
+        tableBody.innerHTML +=row;
+    });
+});
 
 function filterTable(tableClass, inputId) {
     const input = document.getElementById(inputId);

@@ -39,6 +39,10 @@ app.get("/PoliticalParty",(req,res)=>{
     res.sendFile(path.join(__dirname, "/Political Party.html"));
 });
 
+app.get("/BallotPaper",(req,res)=>{
+    res.sendFile(path.join(__dirname, "/BallotPaper.html"));
+});
+
 //Fetching data from database 
 
 app.get("/api/candidate",(req,res)=>{
@@ -179,6 +183,16 @@ app.get("/api/PoliticalParty",(req,res)=>{
     connection.query(sql,(err,results)=>{
         if(err){
         console.error("Error fetching Voters");
+        return;
+        }
+        res.json(results);
+    });
+});
+app.get("/api/BallotPaper",(req,res)=>{
+    const sql="SELECT bp.BallotPaperID,bp.WardID,bp.ConstituencyID,bp.PositionID,bp.CandidateID,bp.Status,bp.TimeStampFROM BallotPaper bp;";
+    connection.query(sql,(err,results)=>{
+        if(err){
+        console.error("Error fetching BallotPapers");
         return;
         }
         res.json(results);
