@@ -272,20 +272,4 @@ function filterTable(tableClass, inputId) {
 // Example usage:
 filterTable(".voterTable", "voterSearch");
 
-     // your data
-    const female = 51;
-    const male = 69;
-
-    const ctx = document.getElementById('genderChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'bar', // you can also use 'pie' or 'doughnut'
-      data: {
-        labels: ['Female', 'Male'],
-        datasets: [{
-          label: 'Registered Voters',
-          data: [female, male],
-          backgroundColor: ['pink', 'lightblue']
-        }]
-      }
-    });
  
