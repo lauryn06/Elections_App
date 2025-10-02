@@ -22,6 +22,7 @@
 <a href="Polling Station.html"><i class="fa-solid fa-building"></i> Polling Station</a>
 <a href="BallotPaper.html"><i class="fas fa-file-alt ballot-icon"></i>Ballot Paper</a>
 <a href="Monitoring.html"><i class="fa-solid fa-eye"></i> Monitoring</a>
+<a href="result.html"><i class="fas fa-poll"></i> Results
 <a href="login.html" class="signout-link">
   <i class="fa-solid fa-right-from-bracket"></i> Sign Out
 </a>
@@ -30,10 +31,34 @@
     </nav>
     </section>
     <section class="in">
-    <h6 class="feedback">Registered Voters By Gender</h6>
- <canvas id="genderChart" width="400" height="200"></canvas>
 
-    <script src="script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+    <script >
+        var xValues = [ "MALE", "FEMALE"];
+var yValues = [ 64,43];
+var barColors = [ "green","blue"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Registered Voters by Gender"
+    }
+  }
+});
+    </script>
     </section>
 </body>
 </html>
