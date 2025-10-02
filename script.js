@@ -145,7 +145,7 @@ fetch("/api/PoliticalParty")
         <td>${party.Abbreviation}</td>
         <td>${party.LeaderFirstName}</td>
         <td>${party.LeaderLastName}</td>
-        <td>${party.FoundedYear}</td>
+        <td>${party.FounderYear}</td>
         <td>${party.Location}</td>
         <td>${party.Contact}</td>
         </tr>`;
@@ -301,11 +301,17 @@ document.addEventListener("DOMContentLoaded", () => {
             <td>${lastName}</td>
             <td>${NRC}</td> 
             <td>${gender}</td>
+            <td><button class="deleteBtn">Delete</button></td>
         `;
 
         // Add the row to the table
         voterTableBody.appendChild(newRow);
-
+//delete function
+newRow.querySelector(".deleteBtn").addEventListener("click", () => {
+    voterTableBody.removeChild(newRow); // Remove this row
+    message.textContent = "Voter deleted successfully!";
+    message.style.color = "red";
+});
         // Clear inputs
         document.getElementById("firstName").value = "";
         document.getElementById("lastName").value = "";
@@ -325,6 +331,7 @@ document.addEventListener("DOMContentLoaded", () => {
         message.textContent = "";
     });
 });
+       
 
 
  

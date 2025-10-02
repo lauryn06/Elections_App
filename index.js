@@ -160,7 +160,7 @@ app.get("/api/Monitoring", (req, res) => {
 
 
 app.get("/api/PollingStation",(req,res)=>{
-    const sql="SELECT ps.StationID, ps.Name AS StationName, c.Name AS Constituency, d.Name AS District FROM PollingStation ps LEFT JOIN Constituency c ON ps.ConstituencyID = c.ConstituencyID LEFT JOIN District d ON c.DistrictID = d.DistrictID";
+    const sql="SELECT ps.StationID,  ps.Name AS StationName, c.Name AS Constituency, w.Location AS Ward, d.Name AS District FROM PollingStation ps LEFT JOIN Constituency c ON ps.ConstituencyID = c.ConstituencyID LEFT JOIN Ward w ON w.ConstituencyID = c.ConstituencyID LEFT JOIN District d ON c.DistrictID = d.DistrictID;";
     connection.query(sql,(err,results)=>{
         if(err){
         console.error("Error fetching Voters");
@@ -170,7 +170,7 @@ app.get("/api/PollingStation",(req,res)=>{
     });
 });
 app.get("/api/PoliticalParty",(req,res)=>{
-    const sql="SELECT PartyID, Name AS PartyName, Abbreviation, Leader_FName AS LeaderFirstName, Leader_LName AS LeaderLastName, FounderYear, Location, Contact_Info AS Contact FROM PoliticalParty";
+    const sql="   SELECT ps.StationID, ps.Name AS StationName, ps.Location AS Ward, c.Name AS Constituency, d.Name AS District FROM PollingStation ps LEFT JOIN Constituency c ON ps.ConstituencyID = c.ConstituencyID  LEFT JOIN District d ON c.DistrictID = d.DistrictID;";
     connection.query(sql,(err,results)=>{
         if(err){
         console.error("Error fetching Voters");
