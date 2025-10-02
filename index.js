@@ -8,12 +8,19 @@ const Port=3000;
 const app =express();
 app.use(express.static(__dirname));
 
-app.get("/",(req, res)=>{
-    res.sendFile(path.join(__dirname, "/login.html"));
+app.get("/", (req, res) => {
+    res.redirect("/login");
+});
+
+app.get("/login", (req, res) => {
+    res.sendFile(path.join(__dirname, "login.html"));
 });
 
 app.get("/candidate",(req,res)=>{
     res.sendFile(path.join(__dirname, "/candidate.html"));
+});
+app.get("/result",(req,res)=>{
+    res.sendFile(path.join(__dirname, "/result.html"));
 });
 
 app.get("/Vote",(req,res)=>{
