@@ -126,7 +126,7 @@ fetch("/api/PollingStation")
         <td>${station.StationID}</td>
         <td>${station.StationName}</td>
         <td>${station.Constituency}</td>
-        <td>${station.Ward}</td>
+        <td>${station.Location}</td>
         <td>${station.District}</td>
         </tr>`;
         tableBody.innerHTML +=row;
