@@ -120,13 +120,14 @@ fetch("/api/Winner")
 fetch("/api/PollingStation")
 .then(response =>response.json())
 .then(data=>{
-    const tableBody=document.querySelector(".pollingTable");
+    const tableBody=document.querySelector(".pollingTable tbody");
+    tableBody.innerHTML="";
     data.forEach(station => {
         const row=`<tr>
         <td>${station.StationID}</td>
         <td>${station.StationName}</td>
         <td>${station.Constituency}</td>
-        <td>${station.Location}</td>
+        <td>${station.Ward}</td>
         <td>${station.District}</td>
         </tr>`;
         tableBody.innerHTML +=row;
@@ -137,7 +138,8 @@ fetch("/api/PollingStation")
 fetch("/api/PoliticalParty")
 .then(response =>response.json())
 .then(data=>{
-    const tableBody=document.querySelector(".partyTable");
+    const tableBody=document.querySelector(".partyTable tbody");
+    tableBody.innerHTML="";
     data.forEach(party => {
         const row=`<tr>
         <td>${party.PartyID}</td>
