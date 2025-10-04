@@ -333,27 +333,4 @@ newRow.querySelector(".deleteBtn").addEventListener("click", () => {
         message.textContent = "";
     });
 });
-       
-function filterCandidates() {
-  const searchInput = document.getElementById("searchInput").value.toLowerCase();
-  const positionFilter = document.getElementById("positionFilter").value.toLowerCase();
-  const table = document.getElementById("candidateTable");
-  const rows = table.getElementsByTagName("tr");
-
-  for (let i = 1; i < rows.length; i++) { // skip header row
-    const cells = rows[i].getElementsByTagName("td");
-    const firstName = cells[1]?.textContent.toLowerCase() || "";
-    const lastName = cells[2]?.textContent.toLowerCase() || "";
-    const position = cells[4]?.textContent.toLowerCase() || "";
-
-    const matchesSearch = firstName.includes(searchInput) || lastName.includes(searchInput);
-    const matchesPosition = positionFilter === "" || position === positionFilter;
-
-    if (matchesSearch && matchesPosition) {
-      rows[i].style.display = "";
-    } else {
-      rows[i].style.display = "none";
-    }
-  }
-}
-
+ 
