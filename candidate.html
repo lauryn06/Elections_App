@@ -27,8 +27,7 @@
 <a href="login.html" class="signout-link">
   <i class="fa-solid fa-right-from-bracket"></i> Sign Out
 </a>
-        </div>
-        
+ </div>
     </nav>
     </section>
     <section class="in">
@@ -36,7 +35,12 @@
  <h4>Registered Candidates</h4>
  <div class="idid">
  <input type="text" id="candidateSearch" placeholder="Search candidates by first or last name">
-
+  <select id="positionFilter">
+    <option value="">Positions</option>
+    <option value="President">President</option>
+    <option value="Member Of Parliment">Member Of Parliment</option>
+    <option value="Counsellor">Counsellor</option>
+  </select>
 </div>
     <table class="candidateTable">
        <tr>
@@ -51,7 +55,7 @@
        </tr>
         
     </table>
-  
+  <script src="candidate.js"></script>
     <script src="script.js"></script>
     </section>
 </body>
