@@ -143,13 +143,13 @@ fetch("/api/PoliticalParty")
     data.forEach(party => {
         const row=`<tr>
         <td>${party.PartyID}</td>
-        <td>${party.PartyName}</td>
+        <td>${party.Name}</td>
         <td>${party.Abbreviation}</td>
-        <td>${party.LeaderFirstName}</td>
-        <td>${party.LeaderLastName}</td>
+        <td>${party.Leader_FName}</td>
+        <td>${party.Leader_LName}</td>
         <td>${party.FounderYear}</td>
         <td>${party.Location}</td>
-        <td>${party.Contact}</td>
+        <td>${party.Contact_Info}</td>
         </tr>`;
         tableBody.innerHTML +=row;
         
@@ -334,6 +334,26 @@ newRow.querySelector(".deleteBtn").addEventListener("click", () => {
     });
 });
        
+function filterCandidates() {
+  const searchInput = document.getElementById("searchInput").value.toLowerCase();
+  const positionFilter = document.getElementById("positionFilter").value.toLowerCase();
+  const table = document.getElementById("candidateTable");
+  const rows = table.getElementsByTagName("tr");
 
+  for (let i = 1; i < rows.length; i++) { // skip header row
+    const cells = rows[i].getElementsByTagName("td");
+    const firstName = cells[1]?.textContent.toLowerCase() || "";
+    const lastName = cells[2]?.textContent.toLowerCase() || "";
+    const position = cells[4]?.textContent.toLowerCase() || "";
 
- 
+    const matchesSearch = firstName.includes(searchInput) || lastName.includes(searchInput);
+    const matchesPosition = positionFilter === "" || position === positionFilter;
+
+    if (matchesSearch && matchesPosition) {
+      rows[i].style.display = "";
+    } else {
+      rows[i].style.display = "none";
+    }
+  }
+}
+

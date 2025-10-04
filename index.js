@@ -170,7 +170,7 @@ app.get("/api/PollingStation",(req,res)=>{
     });
 });
 app.get("/api/PoliticalParty",(req,res)=>{
-    const sql=" SELECT ps.StationID, ps.Name AS StationName, ps.Location, c.Name AS Constituency, d.Name AS District FROM PollingStation ps LEFT JOIN Constituency c ON ps.ConstituencyID = c.ConstituencyID  LEFT JOIN District d ON c.DistrictID = d.DistrictID;";
+    const sql="SELECT* FROM PoliticalParty;";
     connection.query(sql,(err,results)=>{
         if(err){
         console.error("Error fetching Voters");
